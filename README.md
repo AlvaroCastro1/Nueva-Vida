@@ -36,14 +36,14 @@
 
 ### Clonar el Repositorio y Ubicarse en la Ruta del Proyecto
 
-**Clona este repositorio y colócate en la ruta del proyecto `Ropa-Reutilizada/`.**
+**Clona este repositorio y colócate en la ruta del proyecto `Nueva-Vida/`.**
 
 #### 1. Archivo `.env`
 
-Primero, copia el archivo `ropa_reutilizada/.env.bk` a `ropa_reutilizada/.env`. **Y modifícalo con tus datos**. Este archivo contiene las variables necesarias para la conexión a la base de datos MySQL.
+Primero, copia el archivo `ecommerce/.env.bk` a `ecommerce/.env`. **Y modifícalo con tus datos**. Este archivo contiene las variables necesarias para la conexión a la base de datos MySQL.
 
 ```sh
-cp ropa_reutilizada/.env.bk ropa_reutilizada/.env
+cp ecommerce/.env.bk ecommerce/.env
 ```
 
 #### 2. Instalación de `virtualenv`
@@ -96,13 +96,13 @@ Realiza las migraciones para la base de datos; aquí se harán los cambios para 
 *IMPORTANTE:* Realizar la creación del [Super Usuario](#super-usuario)
 
 ```sh
-python ropa_reutilizada/manage.py migrate
+python manage.py migrate
 ```
 
 #### 7. Ejecución del Servicio Web
 
 ```sh
-python ropa_reutilizada/manage.py runserver
+python manage.py runserver
 ```
 
 ## Procesos para el Desarrollador
@@ -129,7 +129,7 @@ django-admin startproject <nombre>
 
 ```sh
 # Hacer archivos para las migraciones
-python ropa_reutilizada/manage.py makemigrations
+python manage.py makemigrations
 ```
 
 ### Super Usuario
@@ -137,7 +137,7 @@ python ropa_reutilizada/manage.py makemigrations
 Para crear un nuevo superusuario
 
 ```sh
-python ropa_reutilizada/manage.py createsuperuser
+python manage.py createsuperuser
 ```
 
 ## Para Administradores
@@ -153,7 +153,7 @@ python ropa_reutilizada/manage.py createsuperuser
 ### Crear Nuevas Páginas
 
 
-1. Agrega el archivo HTML en la carpeta `ropa_reutilizada\base\templates`.
+1. Agrega el archivo HTML en la carpeta `Nueva-Vida/store/templates/store`.
 2. Configura la vista de Django en un archivo `views.py`:
 
    ```python
