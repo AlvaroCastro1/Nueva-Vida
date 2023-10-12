@@ -14,7 +14,7 @@ def cargar_registros_iniciales(apps, schema_editor):
 
     customer = Customer.objects.create(user=user, name='Nombre del Cliente', email='correo@ejemplo.com')
 
-    product = Product.objects.create(name='Producto de Prueba', price=19.99, digital=False)
+    product = Product.objects.create(name='Producto de Prueba', price=19.99, digital=False, image='LED_Mirror.jpg')
 
     order = Order.objects.create(customer=customer, transaction_id='123456', complete=False)
 
