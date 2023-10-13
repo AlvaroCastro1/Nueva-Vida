@@ -31,7 +31,7 @@ class Product(models.Model):
 	@property
 	def imageURL(self):
 		try:
-			url = self.image.url
+			url = self.ImagenPrincipal.url
 		except:
 			url = ''
 		return url
@@ -78,7 +78,7 @@ class OrderItem(models.Model):
 
 	@property
 	def get_total(self):
-		total = self.product.price * self.quantity
+		total = self.product.Precio * self.quantity
 		return total
 
 
