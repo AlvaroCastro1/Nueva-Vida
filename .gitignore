@@ -2,5 +2,5 @@ desktop.ini
 .env
 *.pyc
 __pycache__/
-productos/
+# productos/
 venv/
