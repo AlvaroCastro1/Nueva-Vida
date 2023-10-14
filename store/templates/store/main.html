@@ -78,8 +78,9 @@
 	    </ul>
 	    <div class="form-inline my-2 my-lg-0">
 			{% if user.is_authenticated %}
-				<p style="color:white;">Bienvenido, {{ user.username }}.</p>
+				<a style="color:white;">Bienvenido, {{ user.first_name }}.</a>
 				<a href="{% url 'logout' %}" class="btn btn-warning">Logout</a>
+				<a style="color:white;" href="{% url 'edit_profile' %}" class="btn btn-warning">Editar Perfil</a>
 			{% else %}
 				<a href="{% url 'login' %}" class="btn btn-warning">Login</a>
 			{% endif %}

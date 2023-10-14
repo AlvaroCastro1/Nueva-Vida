@@ -154,3 +154,39 @@ def update_last_login(sender, request, **kwargs):
         # El usuario ha iniciado sesión
         request.user.last_login = timezone.now()
         request.user.save()
+
+from django.contrib.auth.decorators import login_required
+from .forms import UserProfileForm
+
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        user_form = UserProfileForm(request.POST, instance=request.user)
+
+        if user_form.is_valid():
+            user_form.save()
+            # Modificar Customer
+            customer_id = request.user.id
+            customer = Customer.objects.get(pk=customer_id)
+
+            user_data = user_form.cleaned_data
+            first_name = user_data['first_name']
+            last_name = user_data['last_name']
+            email = user_data['email']
+
+            # Paso 2: Actualiza los campos del objeto Customer
+            customer.Nombre = first_name
+            customer.Apellidos = last_name
+            # customer.Telefono = "NuevoT"
+            customer.Email = email
+
+            # Paso 3: Guarda el objeto Customer
+            customer.save()
+            
+            
+            # Redirige al usuario
+            return redirect("store")
+    else:
+        user_form = UserProfileForm(instance=request.user)
+    return render(request, 'registration/edit_profile.html', {'user_form': user_form})
