@@ -143,3 +143,14 @@ from django.contrib.auth import logout
 def user_logout(request):
     logout(request)
     return render(request, 'registration/logout_confirmation.html')
+
+from django.contrib.auth.signals import user_logged_out
+from django.dispatch import receiver
+from django.utils import timezone
+
+@receiver(user_logged_out)
+def update_last_login(sender, request, **kwargs):
+    if request.user.is_authenticated:
+        # El usuario ha iniciado sesión
+        request.user.last_login = timezone.now()
+        request.user.save()
