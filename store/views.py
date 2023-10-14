@@ -133,7 +133,7 @@ def user_login(request):
             return redirect("store")
         else:
             # Maneja el caso de credenciales inválidas
-            return render(request, "login.html", {"error": "Credenciales inválidas."})
+            return render(request, "registration/login.html", {"error": "Credenciales inválidas."})
 
     return render(request, "registration/login.html")
 
