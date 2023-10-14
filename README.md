@@ -40,7 +40,9 @@
 
 #### 1. Archivo `.env`
 
-Primero, copia el archivo `ecommerce/.env.bk` a `ecommerce/.env`. **Y modifícalo con tus datos**. Este archivo contiene las variables necesarias para la conexión a la base de datos MySQL.
+Primero, copia el archivo `ecommerce/.env.bk` a `ecommerce/.env`. **Y modifícalo con tus datos**. Este archivo contiene las variables para:
+ - Conexión a la base de datos MySQL.
+ - Claves del SuperUser
 
 ```sh
 cp ecommerce/.env.bk ecommerce/.env
@@ -93,7 +95,7 @@ CREATE DATABASE ropa;
 
 Realiza las migraciones para la base de datos; aquí se harán los cambios para que el administrador pueda hacer el CRUD.
 
-*IMPORTANTE:* Realizar la creación del [Super Usuario](#super-usuario)
+*IMPORTANTE:* Actualmente ya se crea al [Super Usuario](#super-usuario) con las variables del [.env](#1-archivo-env)
 
 ```sh
 python manage.py migrate

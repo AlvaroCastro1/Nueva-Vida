@@ -3,9 +3,17 @@
 from django.db import migrations
 from django.contrib.auth.models import User
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 def cargar_registros_iniciales(apps, schema_editor):
 
-    user = User.objects.create_user(username='admin', password='admin', is_superuser= True, is_staff = True)
+    USER_ADMIN_SITE = os.environ.get('USER_ADMIN_SITE')
+    PASSWORD_ADMIN_SITE = os.environ.get('PASSWORD_ADMIN_SITE')
+    
+    user = User.objects.create_user(username=USER_ADMIN_SITE, password=PASSWORD_ADMIN_SITE, is_superuser= True, is_staff = True)
 
     user.save()
 
