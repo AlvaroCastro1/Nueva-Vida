@@ -92,3 +92,30 @@ def processOrder(request):
         )
 
     return JsonResponse('Payment submitted..', safe=False)
+
+from django.contrib.auth import login
+from django.shortcuts import redirect
+from django.contrib.auth import login
+from .forms import CustomUserCreationForm
+
+from django.views.decorators.csrf import csrf_protect
+
+@csrf_protect
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+
+            nombre = form.cleaned_data.get('first_name')
+            apellidos = form.cleaned_data.get('last_name')
+            email = form.cleaned_data.get('email')
+            telefono = form.cleaned_data.get('telefono')  # Obtenemos el campo Telefono del formulario
+
+            customer = Customer.objects.create(user=user, Nombre=nombre, Apellidos=apellidos, Email=email, Telefono=telefono, Monedero=0.00)
+
+            login(request, user)
+            return redirect('store')  # Reemplaza 'tu_pagina_principal' con la URL de la página principal
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})

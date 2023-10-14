@@ -8,21 +8,9 @@ def cargar_registros_iniciales(apps, schema_editor):
     Order = apps.get_model('store', 'Order')
     OrderItem = apps.get_model('store', 'OrderItem')
     ShippingAddress = apps.get_model('store', 'ShippingAddress')
-    User = apps.get_model('auth', 'User')
-
-    user = User.objects.create(username='usuario_prueba', password='contrasena_prueba')
-
-    customer = Customer.objects.create(user=user, name='Nombre del Cliente', email='correo@ejemplo.com')
 
     product = Product.objects.create(name='Producto de Prueba', price=19.99, digital=False, image='LED_Mirror.jpg')
 
-    order = Order.objects.create(customer=customer, transaction_id='123456', complete=False)
-
-    order_item = OrderItem.objects.create(product=product, order=order, quantity=2)
-
-    shipping_address = ShippingAddress.objects.create(customer=customer, order=order, address='123 Calle Principal', city='Ciudad', state='Estado', zipcode='12345')
-    
-    User.objects.create_superuser('admin', 'admin@example.com', 'admin')
 
 class Migration(migrations.Migration):
     dependencies = [
