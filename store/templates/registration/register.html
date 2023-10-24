@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <link rel="icon" type"image" href="../static/src/logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/estilo.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=OtherFont:wght@400;700&display=swap"  />
+    
     <title>Registro</title>
 </head>
-<body>
-    <h2>Registro</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+<body class="regclf">
+    <section class="form-register">
+        <h2>Registro</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
         <button type="submit">Registrarse</button>
-    </form>
+
+            <p><a href="#">¿Ya tengo una cuenta? </a></p>
+        </form>
+    </section>
 </body>
 </html>
