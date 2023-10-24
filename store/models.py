@@ -96,3 +96,16 @@ class ShippingAddress(models.Model):
 
 	def __str__(self):
 		return self.address
+#Registro de una donacion	
+class DonacionRopa(models.Model):
+    donante = models.CharField(max_length=100, help_text="Nombre del donante")
+    fecha_donacion = models.DateField(help_text="Fecha de la donación")
+    descripcion = models.TextField(help_text="Descripción de la donación")
+    cantidad = models.PositiveIntegerField(help_text="Cantidad de ropa donada")
+    tipo_ropa = models.CharField(max_length=50, help_text="Tipo de ropa donada")
+    talla = models.CharField(max_length=10, help_text="Talla de la ropa")
+    estado = models.CharField(max_length=20, help_text="Estado de la ropa")
+    puntuacion = models.DecimalField(max_digits=3, decimal_places=2, help_text="Puntuación de la donación")
+
+    def __str__(self):
+        return f"Donación de {self.donante} el {self.fecha_donacion}"
