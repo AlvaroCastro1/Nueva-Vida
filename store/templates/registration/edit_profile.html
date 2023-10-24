@@ -21,10 +21,12 @@
             <input class="controls" type="text" id="first_name" name="first_name" value="{{ user.first_name }}" placeholder="Nombre"><br>
             <input class="controls" type="text" id="last_name" name="last_name" value="{{ user.last_name }}" placeholder="Apellidos"><br>
             <input class="controls" type="email" id="email" name="email" value="{{ user.email }}" placeholder="Email"><br>
-            <input class="controls" type="text" id="telefono" name="telefono" value="Valor del teléfono actual" placeholder="Teléfono"><br>
+            <input class="controls" type="text" id="telefono" name="telefono" value="" placeholder="Teléfono"><br>
             
             <button class="botons" type="submit">Guardar cambios</button>
-            <button class="botons" type="submit" id="miBoton">Cambiar Contraseña</button>
+        </form>
+        <form method="get" action="{% url 'logout' %}">
+            <button class="controls" type="text" id="miBoton" type="submit">Cambiar contraseña</button>
         </form>
     </section>
 </body>
