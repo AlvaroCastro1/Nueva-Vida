@@ -107,3 +107,20 @@ body{
     font-size: 16px;
     /* Otros estilos si es necesario */
 }
+
+.error-message {
+    background-color: #ffcccc; /* Color de fondo del mensaje de error */
+    color: #ff0000; /* Color del texto del mensaje de error */
+    border: 1px solid #ff0000; /* Borde alrededor del mensaje de error */
+    padding: 10px; /* Espaciado interno del mensaje de error */
+    margin: 10px 0; /* Espaciado externo del mensaje de error */
+    border-radius: 5px; /* Bordes redondeados para el mensaje de error */
+}
+.info-message {
+    background-color: #DCEFE0; /* Color de fondo del mensaje de error */
+    color: #6DBFBC; /* Color del texto del mensaje de error */
+    border: 1px solid #62A4A2; /* Borde alrededor del mensaje de error */
+    padding: 10px; /* Espaciado interno del mensaje de error */
+    margin: 10px 0; /* Espaciado externo del mensaje de error */
+    border-radius: 5px; /* Bordes redondeados para el mensaje de error */
+}

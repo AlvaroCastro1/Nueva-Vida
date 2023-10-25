@@ -15,10 +15,41 @@
         <h2>Registro</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-        <button type="submit">Registrarse</button>
 
-            <p><a href="#">¿Ya tengo una cuenta? </a></p>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="error-message">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+
+            {{ form.first_name }}
+            {{ form.first_name.errors }}
+
+
+            {{ form.last_name }}
+            {{ form.last_name.errors }}
+
+            {{ form.email }}
+            {{ form.email.errors }}
+
+            {{ form.telefono }}
+            {{ form.telefono.errors }}
+
+            {{ form.password1 }}
+            {{ form.password1.errors }}
+
+            {{ form.password2 }}
+            {{ form.password2.errors }}
+
+            {% if form.password2.errors %}
+                <div class="error-message">
+                    {{ form.password2.errors }}
+                </div>
+            {% endif %}
+
+            <button class="botons" type="submit">Registrarse</button>
+            <p><a href="#">¿Ya tengo una cuenta?</a></p>
         </form>
     </section>
 </body>
