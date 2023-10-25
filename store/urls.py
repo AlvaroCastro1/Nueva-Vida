@@ -1,10 +1,13 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-
+from django.views.generic import RedirectView
+from django.contrib import admin
 
 urlpatterns = [
     path('', views.home, name="home"),
+    path('admin-panel/', admin.site.urls, name='admin-panel'),
+    path('favicon.ico', RedirectView.as_view(url='static/src/logo.jpg')),
     path('cart/', views.cart, name="cart"),
     path('store/', views.store, name="store"),
     path('checkout/', views.checkout, name="checkout"),
