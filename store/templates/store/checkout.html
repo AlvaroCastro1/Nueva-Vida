@@ -16,22 +16,28 @@
 		<script>
 			const $imagen = document.querySelector("#codigo"),
 				$boton = document.querySelector("#btnDescargar");
-			$linkNew = document.querySelector("#btnDescargar");
+		
+			// Obtener el valor de nombre_host desde el contexto
+			var nombreHost = "{{ nombre_host }}";
+			var orderId = "{{ order }}";
+		
 			new QRious({
 				element: $imagen,
-				value: "admin/store/orderitem/2", // La URL o el texto
+				value: nombreHost + "/admin/store/orderitem/" + orderId,
 				size: 500,
-				backgroundAlpha: 0, // 0 para fondo transparente
-				foreground: "#8bc34a", // Color del QR
-				level: "H", // Puede ser L,M,Q y H (L es el de menor nivel, H el mayor)
+				backgroundAlpha: 0,
+				foreground: "#8bc34a",
+				level: "H"
 			});
+		
 			$boton.onclick = () => {
 				const enlace = document.createElement("a");
-				enlace.href = $imagen.src;
-				enlace.download = "Código QR generado desde parzibyte.me.png";
+				enlace.href = $imagen.toDataURL();
+				enlace.download = "CodigoQR.png";
 				enlace.click();
 			}
 		</script>
+		
 
 
 
