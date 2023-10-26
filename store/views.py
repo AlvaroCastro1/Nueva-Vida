@@ -7,6 +7,13 @@ import datetime
 from .utils import cookieCart, cartData, guestOrder
 
 # Create your views here.
+from django.urls import reverse
+from django.shortcuts import redirect
+
+def admin_login(request):
+    admin_login_url = reverse('admin:login')  # URL por defecto del login del administrador
+    return redirect(admin_login_url)
+
 def home(request):
     return render(request, 'store/index.html')
 

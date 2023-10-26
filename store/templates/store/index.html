@@ -3,13 +3,13 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="icon" type"image" href="../static/src/logo.jpg">
+  <link rel="icon" type"image" href="../static/src/logo_Pagina.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/style_index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=OtherFont:wght@400;700&display=swap"  />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&display=swap" rel="stylesheet" />
@@ -22,90 +22,56 @@
   
   <header>
     <div class="container">
-     <p class="logo">NUEVA VIDA</p>
+      <div class="logo-container">
+        <img src="../static/src/logo.png" class="logo" alt="Logo de Nueva Vida">
+        <p class="logo-text">NUEVA VIDA</p>
+      </div>
       <nav>
-        <a href="#Nuestra_historia">Nuestra Historia</a>
-        <a href="#Mision">Misión</a>
-        <a href="#Vision">Visión</a>
-        <a href="#Valores">Valores</a>
-        <a href="#final">Donar</a>
-        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'login' %}">Iniciar Sesión</a>
+        <a href="{% url 'register' %}">Registrar</a>
+        <a href="{% url 'admin_login' %}">Administrdores</a>
       </nav>
     </div>
   </header>
 
   <section id="hero">
-     <h1>Visite nuestros catalogos! </h1> 
-      <form method="get" action="{% url 'store' %}">
-        <button class="controls" type="text" id="miBoton" type="submit">Ver catalogo de compras</button>
-      </form>
+     <h1>¡Visita nuestra tienda! </h1> 
+     <form action="{% url 'store' %}">
+      <button>Ver catálogo de compras</button>
+    </form>
   </section>
 
-  <section id="Nuestra_historia">
-    <div class="container">
-      <div class="img-container"> </div>
-      <div class="texto">
-        <h2>Nuestra Historia</h2>
-      <p>Somos una empresa que comenzó siendo solo una idea de estudiantes, tratando de
-        hacer una empresa que ayudara a la ecología. Pero de una forma especial, por medio
-        de la gente que no sabia que realmente estaba ayudando a la ecología y su
-        economía, observamos el gran desperdicio de ropa que hay en el mundo ya que
-        mucha gente solo la usa una ves, porque ya no le gusto o simplemente ya paso de
-        moda, y es ahí donde entramos nosotros que le damos una nueva vida a esa ropa. </p>
-      </div>      
-    </div>
-  </section>
 
-  <section id="Mision">
+  <section id="Imagenes">
     <div class="container">
-      <div class="texto"> 
-      <h3>Misión</h3>
-      <p>Somos una empresa que busca satisfacer las necesidades de nuestros clientes con
-        productos innovadores y de buena calidad a precios accesibles, siendo una empresa
-        sustentable que busca transmitir la imagen de una empresa responsable con su
-        ecología.
-      </p>
+      <div class="img-container">
+        <img src="../static/src/funcionamiento.jpg" class="responsive-image" alt="Funcionamiento">
       </div>
-      <div class="img-container"> </div>
-    </div>
-  </section>
-
-  <section id="Vision">
-    <div class="container">
-      <div class="img-container"> </div>
-      <div class="texto">
-        <h3>Visión</h3>
-        <p>Buscamos ser una empresa líder en la confección y comercialización de moda siendo
-          sustentables, satisfaciendo los gusto y tendencias de nuestro mercado de forma
-          eficiente y eficaz </p>
-        </div>
-    </div>
-  </section>
-  <section id="Valores">
-    <div class="container">
-      <div class="texto"> 
-      <h3>Valores</h3>
-      <p>
-        Honestidad <br>
-        Responsabilidad<br>
-        Calidad<br>
-        Puntualidad<br>
-        Trabajo en equipo<br>
-        Respeto <br>
-        Innovación<br>
-        Responsabilidad Social<br>
-        Confianza<br>
-      </p>
+      <div class="img-container">
+        <img src="../static/src/Valoracion.jpg" class="responsive-image" alt="Valoración">
       </div>
-      <div class="img-container"> </div>
+      <div class="img-container">
+        <img src="../static/src/Intercambio.jpg" class="responsive-image" alt="Intercambio">
+      </div>
+      <div class="img-container">
+        <img src="../static/src/Puntos.jpg" class="responsive-image" alt="Puntos">
+      </div>
+    </div>
+  </section>
+  
+  <section id="Reglas">
+    <div class="container">
+      <img src="../static/src/Reglas1.jpg" class="responsive-image" alt="Reglas1">
+      <img src="../static/src/Reglas2.jpg" class="responsive-image" alt="Reglas2">
     </div>
   </section>
 
   <section id="final">
-    <h1>REGALA TU ROPA VIEJA Y OBTEN UNA NUEVA! </h1> 
-    <form action="">
-     <button>Ver Proceso de Donacion</button>
-   </form>
+    <h1>¡REGALA TU ROPA VIEJA Y OBTEN UNA NUEVA!</h1> 
+    <br>
+    <!-- <form action="">
+     <button>Donar</button>
+   </form> -->
    <p> <br></p>
  </section>
  
@@ -116,16 +82,14 @@
             <figure>
                 <a href="#">
                     
-                    <img id="logo2" src="../static/src/logo.jpg" >
+                    <img id="logo2" src="../static/src/logo3 .jpg" >
                 </a>
             </figure>
         </div>
         <div class="box">
             <h2>SOBRE NOSOTROS</h2>
-            <p>Somos un par de estudiantes de la Universidad Autonoma del Estado de México que realiza su proyecto final  </p>
-            <p>Creado unicamente por motivos didacticos libres de lucro</p>
-            <a href="/admin" class="btn btn-primary">Acceder como administrador</a>
-
+            <p>Somos un grupo de estudiantes pertenecientes a la Universidad Autonoma del Estado de México que realizan un proyecto final  </p>
+            <p>Creado únicamente con fines didácticos y libres de lucro</p>
         </div>
         <div class="box">
             <h2>SIGUENOS</h2>
