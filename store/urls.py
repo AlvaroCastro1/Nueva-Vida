@@ -18,4 +18,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
     path('donacion/', views.donacion, name='RegistroDonador'),
+    path('productos/<int:product_id>/', views.product_detail, name='product_detail')
 ]

@@ -8,9 +8,9 @@
         <div class="box-element product">
             <h6><strong>{{product.name}}</strong></h6>
             <hr>    
-            <button data-product={{product.id}} data-action="add" 
-                class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-            <h4 style="display: inline-block; float: right"><strong>${{product.Precio|floatformat:2}}</strong></h4>
+            <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Añadir al Carrito</button>
+            <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">Ver Detalles</a>
+            <h4 style="display: inline-block;"><strong>${{ product.Precio|floatformat:2 }}</strong></h4>
     
         </div>
     </div>

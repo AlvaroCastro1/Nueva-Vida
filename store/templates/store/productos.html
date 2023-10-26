@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image" href="{% static 'logo_Pagina.png' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles_producto.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <title>NUEVA VIDA</title>
+</head>
+
+<body>
+    <header>
+        <a href="{% url 'store' %}" class="titulo-encabezado">NUEVA VIDA</a>
+    </header>
+
+    <main>
+        <div class="container-info-product">
+            <br>
+            <br>
+            <table>
+                <tr>
+                    <td>
+                        <div class="product-gallery">
+                            {% if product.ImagenPrincipal %}
+                            <div class="image-container">
+                                <img src="{{ product.ImagenPrincipal.url }}" alt="{{ product.name }}"
+                                    onclick="showImage('{{ product.ImagenPrincipal.url }}')">
+                            </div>
+                            {% endif %}
+
+                            {% for imagen in product.imagenproducto_set.all %}
+                            <div class="image-container">
+                                <img src="{{ imagen.Imagen.url }}" alt="Product Image {{ forloop.counter }}"
+                                    onclick="showImage('{{ imagen.Imagen.url }}')">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="selected-image">
+                            <img id="main-image"
+                                src="{% if product.ImagenPrincipal %}{{ product.ImagenPrincipal.url }}{% else %}{% static 'default_image.png' %}{% endif %}"
+                                alt="Selected Product Image">
+                        </div>
+                    </td>
+
+                    <td>
+                        <div>
+                            <h2>{{ product.name }}</h2>
+                            <p>Precio: ${{ product.Precio }}</p>
+                            <p>Talla: {{ product.Talla }}</p>
+                            <p>Color: {{ product.Color }}</p>
+                            <p>Genero: {{ product.Genero }}</p>
+                            <p>Material: {{ product.Material }}</p>
+                            <p>Tipo: {{ product.Tipo }}</p>
+                            <p>Puntos: {{ product.PuntosC }}</p>
+                            <p>Descripción: {{ product.Descripcion }}</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <script>
+                function showImage(imageUrl) {
+                    const mainImage = document.getElementById('main-image');
+                    mainImage.src = imageUrl;
+                }
+            </script>
+        </div>
+    </main>
+    <!-- Aquí van imágenes de los productos relacionados, su descripción de cada objeto y precio. -->
+</body>
+
+</html>
