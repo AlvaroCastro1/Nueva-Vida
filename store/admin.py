@@ -22,6 +22,9 @@ class OrderAdmin(admin.ModelAdmin):
 
 admin.site.register(Customer)
 admin.site.register(Product, IProductoAdmin)
+
 # admin.site.register(Order)
 # admin.site.register(OrderItem)
 admin.site.register(Order, OrderAdmin)
+admin.site.register(DonacionRopa)
+

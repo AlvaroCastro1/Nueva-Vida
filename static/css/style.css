@@ -1,0 +1,417 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Roboto',sans-serif;
+    margin: 0;
+    background-color: rgb(211, 216, 158);
+}
+h1{font-size: 3.5em;}
+h2{font-size: 2.7em;}
+h3{font-size: 2em;}
+p{ font-size: 1.25em;}
+ul{ list-style: none;}
+li{ font-size: 1.25em;}
+
+button{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    box-shadow: 2px 2px 10px #000;
+    color: white;
+    background-color: rgb(58, 228, 16);
+
+    
+}
+button:hover{
+    background-color: rgb(55, 151, 10);
+}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+    
+}
+.color-titulo{color: rgb(211, 216, 158);}
+
+header{
+    background-color: rgb(245, 245, 245);
+}
+/* */
+header .logo{
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: rgb(33, 165, 51);
+    font-size: 1.6em;
+}
+header .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    
+}
+header nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+header a{
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+
+}
+header a:hover{
+    color: rgb(33, 165, 51);
+}
+
+#hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+        )
+        ,url("../src/tienda.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center ce;
+}
+#hero h1{
+    color: aliceblue;
+}
+#Nuestra_historia{
+
+}
+#Nuestra_historia .container{
+    text-align: center;
+    padding: 80px 12px;
+    
+}
+#Nuestra_historia .texto{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#Mision{
+    
+}
+#Mision .container{
+    text-align: center;
+    padding: 80px 12px;
+}
+#Mision .texto{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+#Mision h2{
+    margin-top: 0;
+}
+
+#Vision{
+    
+}
+#Vision .container{
+    text-align: center;
+    padding: 80px 12px;
+}
+#Vision .texto{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+#Valores{
+    text-align: center;
+}
+#Valores .texto{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+#Valores h2{
+    text-align: center;
+}
+#Valores .container{
+    text-align: center;
+    padding: 100px 12px;
+}
+#Valores li{
+    margin: 16px 0px;
+    
+}
+#final{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+        )
+        ,url("../src/donacion.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center ce;
+}
+
+#final h1{
+    color: aliceblue;
+}
+.pie-pagina{
+    width: 100%;
+    background-color: #0a141d;
+}
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:50px;
+    padding: 45px 0px;
+}
+.pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pie-pagina .grupo-1 .box figure img{
+    width: 250px;
+}
+.pie-pagina .grupo-1 .box h2{
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.pie-pagina .grupo-1 .box p{
+    color: #efefef;
+    margin-bottom: 10px;
+}
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.pie-pagina .grupo-1 .red-social a:hover{
+    color: aqua;
+}
+.pie-pagina .grupo-2{
+    background-color: #0a1a2a;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+@media screen and (max-width:720px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+}
+
+@media (min-width: 720px){
+    header{
+        position: fixed;
+        width: 100%;
+    }
+    header .container{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    header nav{
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+    #hero h1{
+        font-size: 5em;
+        padding: 10px;
+    }
+    #Nuestra_historia .container{
+        display: flex;
+        justify-content: center;
+    }
+    #Nuestra_historia .texto{
+        width: 50%;
+        text-align: initial;
+        padding: 0px 30px;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+    }
+    #Nuestra_historia .img-container{
+        background-image: url("../src/NuestraHistoria.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 500;
+        width: 400px;
+        border-radius: 10px;
+    }
+    #Nuestra_historia h2{
+        margin-top: 0;
+    }
+
+     #Mision .container{
+        display: flex;
+        justify-content: center;
+    }
+    #Mision .texto{
+        width: 50%;
+        text-align: initial;
+        padding: 0px 30px;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+    }
+    #Mision .img-container{
+        background-image: url("../src/mision.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 500;
+        width: 400px;
+        border-radius: 10px;
+    }
+    #Mision h2{
+        margin-top: 0;
+    }
+    #Vision .container{
+        display: flex;
+        justify-content: center;
+        height: 400px;
+    }
+    #Vision .texto{
+        width: 50%;
+        text-align: initial;
+        padding: 0px 30px;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+    }
+    #Vision .img-container{
+        background-image: url("../src/vision.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 500;
+        width: 400px;
+        border-radius: 10px;
+    }
+    #Vision h2{
+        margin-top: 0;
+    }
+    #Valores ul{
+        margin-left:100px ;
+    }
+    #Valores .container{
+        display: flex;
+        justify-content: center;
+    }
+    #Valores .texto{
+        width: 50%;
+        text-align: initial;
+        padding: 0px 30px;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+    }
+    #Valores .img-container{
+        background-color: aquamarine;
+        background-image: url("../src/valores.png");
+        background-size: cover;
+        background-position: center center;
+        height: 500;
+        width: 400px;
+        border-radius: 10px;
+    }
+    #Valores h3{
+        margin-top: 0;
+    }
+   
+}
+.form-register{
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri' ;
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+.form-register h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.form-register p{
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.controls{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    color:white;
+}
+.form-register a:hover{
+    color: white;
+    text-decoration: underline;
+}
+.form-register .botons{
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}

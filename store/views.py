@@ -9,6 +9,16 @@ import os
 
 
 # Create your views here.
+from django.urls import reverse
+from django.shortcuts import redirect
+
+def admin_login(request):
+    admin_login_url = reverse('admin:login')  # URL por defecto del login del administrador
+    return redirect(admin_login_url)
+
+def home(request):
+    return render(request, 'store/index.html')
+
 def store(request):
     data = cartData(request)
 
@@ -192,3 +202,6 @@ def edit_profile(request):
     else:
         user_form = UserProfileForm(instance=request.user)
     return render(request, 'registration/edit_profile.html', {'user_form': user_form})
+
+def donacion(request):
+      return render(request, 'registration/RegistroDonador.html')
