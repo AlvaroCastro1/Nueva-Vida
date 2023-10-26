@@ -5,6 +5,8 @@ from django.http import JsonResponse
 import json
 import datetime
 from .utils import cookieCart, cartData, guestOrder
+import os
+
 
 # Create your views here.
 from django.urls import reverse
@@ -28,7 +30,6 @@ def store(request):
     context = {'products':products, 'cartItems':cartItems}
     return render(request, 'store/store.html', context)
 
-
 def cart(request):
     data = cartData(request)
 
@@ -45,8 +46,9 @@ def checkout(request):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
+    nombre_host = os.environ.get('DATABASE_HOST')
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'nombre_host':nombre_host}
     return render(request, 'store/checkout.html', context)
 
 def updateItem(request):
