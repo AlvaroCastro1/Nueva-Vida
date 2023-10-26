@@ -200,3 +200,6 @@ def edit_profile(request):
     else:
         user_form = UserProfileForm(instance=request.user)
     return render(request, 'registration/edit_profile.html', {'user_form': user_form})
+
+def donacion(request):
+      return render(request, 'registration/RegistroDonador.html')

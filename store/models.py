@@ -96,3 +96,32 @@ class ShippingAddress(models.Model):
 
 	def __str__(self):
 		return self.address
+#Registro de una donacion	
+class DonacionRopa(models.Model):
+    Donante = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    fecha_donacion = models.DateField(help_text="Fecha de la donación")
+    descripcion = models.TextField(help_text="Descripción de la donación")
+    cantidad = models.PositiveIntegerField(help_text="Cantidad de ropa donada")
+    tipo_ropa = models.CharField(max_length=50, help_text="Tipo de ropa donada")
+    talla = models.CharField(max_length=10, help_text="Talla de la ropa")
+    estado = models.CharField(max_length=20, help_text="Estado de la ropa")
+    puntuacion = models.DecimalField(max_digits=3, decimal_places=2, help_text="Puntuación de la donación")
+
+    def __str__(self):
+        return f"Donación de {self.Donante} el {self.fecha_donacion}"
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+@receiver(post_save, sender=DonacionRopa)
+def actualizar_monedero(sender, instance, **kwargs):
+    # Obtenemos el valor de 'puntuación' de la instancia de DonacionRopa
+    puntuacion_donacion = instance.puntuacion
+
+    # Supongamos que hay una relación ForeignKey o OneToOneField en DonacionRopa
+    # que enlaza a un usuario Customer, llamémosla 'usuario'
+    usuario = instance.Donante
+
+    # Actualizamos el 'Monedero' del usuario en Customer
+    usuario.Monedero += puntuacion_donacion
+    usuario.save()
