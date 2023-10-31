@@ -190,3 +190,8 @@ def edit_profile(request):
     else:
         user_form = UserProfileForm(instance=request.user)
     return render(request, 'registration/edit_profile.html', {'user_form': user_form})
+
+@login_required
+def dashboard(request):
+    return render(request, 'store/base.htm',{'section': 'dashboard'})
+    

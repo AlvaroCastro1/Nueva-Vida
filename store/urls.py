@@ -13,4 +13,8 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('register/', views.register, name='register'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
+    #password change
+    path('',views.dashboard, name = 'dashboard'),
+    path('password_change/', auth_views.PasswordChangeView.as_view(), name= 'password_change'),
+    path('password_change/done', auth_views.PasswordChangeDoneView.as_view(), name = 'password_change_done'),
 ]
