@@ -23,9 +23,12 @@
             <input class="controls" type="text" id="last_name" name="last_name" value="{{ user.last_name }}" placeholder="Apellidos"><br>
             <input class="controls" type="email" id="email" name="email" value="{{ user.email }}" placeholder="Email"><br>
             <input class="controls" type="text" id="telefono" name="telefono" value="" placeholder="Teléfono"><br>      
-            <button type="submit">Guardar cambios</button>
+            <input class="controls" type="text" id="telefono" name="telefono" value="" placeholder="Teléfono"><br>
 
-            <p>puedes cambiar tu contraseña<a href= "{% url 'password_change'%}">aqui </a> </p>
+            <button class="botons" type="submit">Guardar cambios</button>
+        </form>
+        <form method="get" action="{% url 'password_change' %}">
+            <button class="controls" type="text" id="miBoton" type="submit">Cambiar contraseña</button>
         </form>
     </section>
 </body>
