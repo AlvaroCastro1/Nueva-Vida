@@ -17,6 +17,9 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('register/', views.register, name='register'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
+    path('',views.dashboard, name = 'dashboard'),
+    path('password_change/', auth_views.PasswordChangeView.as_view(), name= 'password_change'),
+    path('password_change/done', auth_views.PasswordChangeDoneView.as_view(), name = 'password_change_done'),
     path('donacion/', views.donacion, name='RegistroDonador'),
     path('productos/<int:product_id>/', views.product_detail, name='product_detail')
 ]

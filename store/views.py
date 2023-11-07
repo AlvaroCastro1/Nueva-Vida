@@ -203,6 +203,12 @@ def edit_profile(request):
         user_form = UserProfileForm(instance=request.user)
     return render(request, 'registration/edit_profile.html', {'user_form': user_form})
 
+
+@login_required
+def dashboard(request):
+    return render(request, 'store/base.htm',{'section': 'dashboard'})
+    
+
 def donacion(request):
       return render(request, 'registration/RegistroDonador.html')
 
@@ -211,3 +217,4 @@ from django.shortcuts import get_object_or_404
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     return render(request, 'store/productos.html', {'product': product})
+
