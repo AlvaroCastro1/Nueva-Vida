@@ -1,14 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <link rel="icon" type"image" href="../static/src/logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/estilo.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=OtherFont:wght@400;700&display=swap"  />
+    
     <title>Registro</title>
 </head>
-<body>
-    <h2>Registro</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Registrarse</button>
-    </form>
+<body class="regclf">
+    <section class="form-register">
+        <h2>Registro</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="error-message">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+
+            {{ form.first_name }}
+            {{ form.first_name.errors }}
+
+
+            {{ form.last_name }}
+            {{ form.last_name.errors }}
+
+            {{ form.email }}
+            {{ form.email.errors }}
+
+            {{ form.telefono }}
+            {{ form.telefono.errors }}
+
+            {{ form.password1 }}
+            {{ form.password1.errors }}
+
+            {{ form.password2 }}
+            {{ form.password2.errors }}
+
+            {% if form.password2.errors %}
+                <div class="error-message">
+                    {{ form.password2.errors }}
+                </div>
+            {% endif %}
+
+            <button class="botons" type="submit">Registrarse</button>
+            <p><a href="#">¿Ya tengo una cuenta?</a></p>
+        </form>
+    </section>
 </body>
 </html>

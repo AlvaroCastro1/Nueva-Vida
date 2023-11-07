@@ -5,12 +5,12 @@
     {% for product in products %}
     <div class="col-lg-4">
         <img class="thumbnail" src="{{product.imageURL}}">
-        <div class="box-element product">
-            <h6><strong>{{product.name}}</strong></h6>
+        <div class="box-element product"  style= "background-color:rgb(239, 239, 239)">
+            <h6 style= "color:rgb(122, 205, 104)"><strong>{{product.name}}</strong></h6>
             <hr>    
-            <button data-product={{product.id}} data-action="add" 
-                class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-            <h4 style="display: inline-block; float: right"><strong>${{product.Precio|floatformat:2}}</strong></h4>
+            <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart" style="font-family: 'Playfair Display', serif; font-size: 0.9em; font-weight: bold;" >Añadir al Carrito</button>
+            <a href="{% url 'product_detail' product.id %}" class="btn btn-primary" style= "color:#efefef; background-color: rgb(122, 205, 104); font-family: 'Playfair Display', serif; font-size: 0.9em; font-weight: bold;"  >Ver Detalles</a>
+            <h4 style="display: inline-block; color:rgb(122, 205, 104);"><strong>${{ product.Precio|floatformat:2 }}</strong></h4>
     
         </div>
     </div>

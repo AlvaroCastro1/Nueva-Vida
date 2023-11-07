@@ -3,13 +3,20 @@
 from django.db import migrations
 from django.contrib.auth.models import User
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 def cargar_registros_iniciales(apps, schema_editor):
     Customer = apps.get_model('store', 'Customer')
 
     User = apps.get_model('auth', 'User')  # Modelo User de Django
 
-    # Recuperar el usuario 'admin'
-    admin_user = User.objects.get(username='admin')
+    # Recuperar el usuario del '.env'
+    USER_ADMIN_SITE = os.environ.get('USER_ADMIN_SITE')
+
+    admin_user = User.objects.get(username=USER_ADMIN_SITE)
     Product = apps.get_model('store', 'Product')
 
 

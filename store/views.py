@@ -5,8 +5,20 @@ from django.http import JsonResponse
 import json
 import datetime
 from .utils import cookieCart, cartData, guestOrder
+import os
+
 
 # Create your views here.
+from django.urls import reverse
+from django.shortcuts import redirect
+
+def admin_login(request):
+    admin_login_url = reverse('admin:login')  # URL por defecto del login del administrador
+    return redirect(admin_login_url)
+
+def home(request):
+    return render(request, 'store/index.html')
+
 def store(request):
     data = cartData(request)
 
@@ -17,7 +29,6 @@ def store(request):
     products = Product.objects.all()
     context = {'products':products, 'cartItems':cartItems}
     return render(request, 'store/store.html', context)
-
 
 def cart(request):
     data = cartData(request)
@@ -35,8 +46,9 @@ def checkout(request):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
+    nombre_host = os.environ.get('DATABASE_HOST')
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'nombre_host':nombre_host}
     return render(request, 'store/checkout.html', context)
 
 def updateItem(request):
@@ -191,7 +203,18 @@ def edit_profile(request):
         user_form = UserProfileForm(instance=request.user)
     return render(request, 'registration/edit_profile.html', {'user_form': user_form})
 
+
 @login_required
 def dashboard(request):
     return render(request, 'store/base.htm',{'section': 'dashboard'})
     
+
+def donacion(request):
+      return render(request, 'registration/RegistroDonador.html')
+
+from django.shortcuts import get_object_or_404
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    return render(request, 'store/productos.html', {'product': product})
+

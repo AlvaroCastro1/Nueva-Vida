@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image" href="{% static 'logo_Pagina.png' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles_producto.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=OtherFont:wght@400;700&display=swap"  />
+	
+    <title>NUEVA VIDA</title>
+</head>
+
+<body style="background-image: url('{% static 'src/catalogo.png' %}'); background-size: cover;">
+    <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background-color: #efefef;" >
+        <nav class="navbar navbar-expand-lg navbar-dark w-100" style="background-color: #efefef; ">
+            <a class="navbar-brand" href="{% url 'store' %}" style="text-decoration: none; color: rgb(122, 205, 104); font-family: 'Alegreya', sans-serif; font-size: 2.5em; font-weight: bold; margin-left: 25px;">
+                NUEVA VIDA
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <!-- Agrega más elementos de la barra de navegación según sea necesario -->
+            </div>
+        </nav>
+    </header>
+
+    <main style="text-align: center; display: flex; justify-content: center; align-items: center;">
+        <div class="container-info-product" style="margin-left:150px">  
+            <table >
+                <tr>
+                    <td>
+                        <div class="product-gallery" style= "background-color:#efefef ">
+                            {% if product.ImagenPrincipal %}
+                            <div class="image-container" >
+                                <img src="{{ product.ImagenPrincipal.url }}" alt="{{ product.name }}"
+                                    onclick="showImage('{{ product.ImagenPrincipal.url }}')">
+                            </div>
+                            {% endif %}
+
+                            {% for imagen in product.imagenproducto_set.all %}
+                            <div class="image-container">
+                                <img src="{{ imagen.Imagen.url }}" alt="Product Image {{ forloop.counter }}"
+                                    onclick="showImage('{{ imagen.Imagen.url }}')">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="selected-image" style= "background-color:#efefef">
+                            <img id="main-image"
+                                src="{% if product.ImagenPrincipal %}{{ product.ImagenPrincipal.url }}{% else %}{% static 'default_image.png' %}{% endif %}"
+                                alt="Selected Product Image">
+                        </div>
+                    </td>
+
+                    <td>
+                        <div style="background-color: #efefef; margin: 5px; padding: 0 10px; font-family: 'Playfair Display', sans-serif; font-weight: bold;" >
+                            <br>
+                            <h2 >{{ product.name }}</h2>
+                            <br>
+                            <p>Precio: ${{ product.Precio }}</p>
+                            <p>Talla: {{ product.Talla }}</p>
+                            <p>Color: {{ product.Color }}</p>
+                            <p>Género: {{ product.Genero }}</p>
+                            <p>Material: {{ product.Material }}</p>
+                            <p>Tipo: {{ product.Tipo }}</p>
+                            <p>Puntos: {{ product.PuntosC }}</p>
+                            <br>
+                            <p>Descripción: {{ product.Descripcion }}</p>
+                            <br>
+                            <br>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <script>
+                function showImage(imageUrl) {
+                    const mainImage = document.getElementById('main-image');
+                    mainImage.src = imageUrl;
+                }
+            </script>
+        </div>
+    </main>
+    <!-- Aquí van imágenes de los productos relacionados, su descripción de cada objeto y precio. -->
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Roboto',sans-serif;
+    margin: 0;
+    background-color: rgb(211, 216, 158);
+}
+.regclf{
+    background: url('../src/ropa.png'); /* Ruta a la imagen de puntitos */
+    background-color: #B3CC91; /* Establece un color de fondo transparente */
+    border-radius: 10px; /* Agrega bordes redondeados al panel */
+}
+
+.regclf .form-register{
+    width: 400px;
+    background:#DCEFE0;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'Alegreya', sans-serif;
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+.regclf h2{
+    font-family: 'Alegreya', sans-serif;
+    color: black;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.regclf h3{
+    font-family: 'Alegreya', sans-serif;
+    color: black;
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+.regclf p{
+    font-family: 'Alegreya', sans-serif;
+    color: black;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 40px;
+}
+.regclf pip{
+    font-family: 'Alegreya', sans-serif;
+    color: black;
+    height: 5px;
+    text-align: center;
+    font-size: 70px;
+    line-height: 40px;
+}
+
+.regclf .controls{
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #4E704A;
+    font-family: 'Alegreya', sans-serif;
+    color:black;
+}
+.regclf a:hover{
+    color: white;
+    text-decoration: underline;
+}
+.regclf .botons{
+    font-family: 'Alegreya', sans-serif;
+    width: 100%;
+    background: #4E704A;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+.salida {
+    background: url('../src/tt.png');
+    background-color: #B3CC91;
+    border-radius: 10px;
+    font-family: 'Alegreya', sans-serif;
+    color: black;
+    height: 80vh; /* Ajusta la altura al 100% de la altura de la ventana */
+    display: flex; /* Usa flexbox para centrar el contenido verticalmente */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    font-size: 70px;
+    line-height: 140px; /* Ajusta el interlineado a tu preferencia */
+}
+
+#miBoton {
+    font-family: 'Alegreya', sans-serif;
+    background-color: #6f9d6a;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    /* Otros estilos si es necesario */
+}
+
+.error-message {
+    background-color: #ffcccc; /* Color de fondo del mensaje de error */
+    color: #ff0000; /* Color del texto del mensaje de error */
+    border: 1px solid #ff0000; /* Borde alrededor del mensaje de error */
+    padding: 10px; /* Espaciado interno del mensaje de error */
+    margin: 10px 0; /* Espaciado externo del mensaje de error */
+    border-radius: 5px; /* Bordes redondeados para el mensaje de error */
+}
+.info-message {
+    background-color: #DCEFE0; /* Color de fondo del mensaje de error */
+    color: #6DBFBC; /* Color del texto del mensaje de error */
+    border: 1px solid #62A4A2; /* Borde alrededor del mensaje de error */
+    padding: 10px; /* Espaciado interno del mensaje de error */
+    margin: 10px 0; /* Espaciado externo del mensaje de error */
+    border-radius: 5px; /* Bordes redondeados para el mensaje de error */
+}
