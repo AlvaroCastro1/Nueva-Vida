@@ -1,6 +1,13 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
+
+<style>
+	body {
+		background-color: rgb(246, 250, 246);
+	}
+</style>
+
 <div class="row">
 	<div class="col-lg-6">
 		<div class="box-element" id="form-wrapper">
@@ -8,7 +15,7 @@
 			<br>
 			<img alt="Código QR" id="codigo">
 			<br>
-			<button id="btnDescargar">Descargar</button>
+			<button id="btnDescargar" style="font-family: Roboto; font-size: 18px; background-color: rgb(101, 205, 77); color: white; border: none; padding: 10px 20px; border-radius: 5px;">Descargar</button>
 		</div>
 
 		<script src="https://unpkg.com/qrious@4.0.2/dist/qrious.js"></script>
@@ -16,6 +23,7 @@
 		<script>
 			const $imagen = document.querySelector("#codigo"),
 				$boton = document.querySelector("#btnDescargar");
+				$linkNew = document.querySelector("#btnDescargar");
 		
 			// Obtener el valor de nombre_host desde el contexto
 			var nombreHost = "{{ nombre_host }}";
@@ -32,16 +40,17 @@
 		
 			$boton.onclick = () => {
 				const enlace = document.createElement("a");
-				enlace.href = $imagen.toDataURL();
+				enlace.href = $imagen.src;
 				enlace.download = "CodigoQR.png";
 				enlace.click();
 			}
 		</script>
-		
 
 
 
 
+
+	
 		<br>
 		<div class="box-element hidden" id="qr">
 
@@ -54,26 +63,27 @@
 
 	<div class="col-lg-6">
 		<div class="box-element">
-			<a class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
+			<!--<a class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>-->
+			<a class="btn btn-dark" href="{% url 'cart' %}" style="font-family: Roboto; font-size: 18px;">&#x2190; Back to Cart</a>
 			<hr>
-			<h3>Order Summary</h3>
+			<h3 style="color: rgb(101, 205, 77); font-family: Roboto;">Order Summary</h3>
 			<hr>
 			{% for item in items %}
 			<div class="cart-row">
-				<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
-				<div style="flex:2">
+				<div style="flex:2; font-family: Roboto; font-size: 18px;"><img class="row-image" src="{{item.product.imageURL}}"></div>
+				<div style="flex:2; font-family: Roboto; font-size: 18px;">
 					<p>{{item.product.name}}</p>
 				</div>
-				<div style="flex:1">
+				<div style="flex:1;font-family: Roboto; font-size: 18px;">
 					<p>${{item.product.Precio|floatformat:2}}</p>
 				</div>
-				<div style="flex:1">
+				<div style="flex:1; font-family: Roboto; font-size: 18px;">
 					<p>x{{item.quantity}}</p>
 				</div>
 			</div>
 			{% endfor %}
-			<h5>Items: {{order.get_cart_items}}</h5>
-			<h5>Total: ${{order.get_cart_total|floatformat:2}}</h5>
+			<h5 style="color: rgb(101, 205, 77); font-family: Roboto;">Items: {{order.get_cart_items}}</h5>
+			<h5 style="color: rgb(10, 10, 10); font-family: Roboto;">Total: ${{order.get_cart_total|floatformat:2}}</h5>
 		</div>
 	</div>
 </div>
