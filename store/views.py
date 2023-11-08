@@ -212,6 +212,9 @@ def dashboard(request):
 def donacion(request):
       return render(request, 'registration/RegistroDonador.html')
 
+def Nuestra_Historia(request):
+      return render(request, 'store/NuevaVida.html')
+
 from django.shortcuts import get_object_or_404
 
 def product_detail(request, product_id):

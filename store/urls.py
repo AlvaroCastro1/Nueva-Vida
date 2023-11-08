@@ -6,6 +6,7 @@ from django.contrib import admin
 
 urlpatterns = [
     path('', views.home, name="home"),
+    path('Nuestra_Historia/', views.Nuestra_Historia, name='Nuestra_Historia'),
     path('admin_login/', views.admin_login, name='admin_login'),
     path('favicon.ico', RedirectView.as_view(url='static/src/logo.jpg')),
     path('cart/', views.cart, name="cart"),
