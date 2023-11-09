@@ -30,7 +30,7 @@
                 <a href="#Mision">Misión</a>
                 <a href="#Vision">Visión</a>
                 <a href="#Valores">Valores</a>
-                <a href="../templates/index.html" class="boton-volver">Volver a la Página Principal</a>
+                <a href="{% url 'home' %}" class="boton-volver">Volver a la Página Principal</a>
             </nav>
         </div>
     </header>
@@ -39,7 +39,7 @@
     <section id="Imagenes">
         <div class="container">
             <div class="img-container">
-                <img src="../static/src/prin.png" class="responsive-image" alt="Imagen">
+                <img src="{% static 'src/prin.png' %}" class="responsive-image" alt="Imagen">
             </div>
         </div>
     </section>
