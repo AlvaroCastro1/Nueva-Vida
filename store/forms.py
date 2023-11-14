@@ -10,7 +10,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
             super(CustomUserCreationForm, self).__init__(*args, **kwargs)
-            placeH = ["Nombre de Usuario", "Nombres", "Apellidos", "Email", "Telefono", "Constraseña", "Confirmar Constraseña"]
+            placeH = ["Nombre de Usuario", "Nombres", "Apellidos", "Email", "Teléfono", "Constraseña", "Confirmar Constraseña"]
             i=0
             for visible in self.visible_fields():
                 visible.field.widget.attrs['class'] = 'controls'
